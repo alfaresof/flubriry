@@ -1,0 +1,1 @@
+enum SiteSection { components, contribute }

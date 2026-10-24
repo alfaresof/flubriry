@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 210 210" role="img" aria-label="flubriry">
+  <rect width="210" height="210" rx="39.81" fill="#027DFD"/>
+  <path transform="translate(64.5370 172.7314) scale(0.175926 -0.175926)" fill="#FBFBFB" d="M306 0V20C262 23 231 39 231 66V499H351V521H231V609C231 675 246 750 303 750C366 750 384 660 384 581L401 577L441 722C418 738 376 770 297 770C185 770 106 707 106 578V521H24L19 499H106V66C106 39 75 23 31 20V0Z"/>
+</svg>

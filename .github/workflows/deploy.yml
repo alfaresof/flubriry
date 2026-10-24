@@ -1,0 +1,70 @@
+name: Deploy flubriry
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: gh-pages
+  cancel-in-progress: true
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.47.0'
+          channel: stable
+          cache: true
+
+      - name: Refuse committed generated registry
+        run: |
+          if git ls-files --error-unmatch lib/registry.g.dart >/dev/null 2>&1; then
+            echo "::error::lib/registry.g.dart is generated and must not be committed."
+            exit 1
+          fi
+
+      - name: Install packages
+        run: flutter pub get
+
+      - name: Generate the registry
+        run: dart run tool/generate_registry.dart
+
+      - name: Analyze
+        run: flutter analyze
+
+      - name: Test
+        run: flutter test
+
+      - name: Build web
+        run: flutter build web --release --base-href /${{ github.event.repository.name }}/
+
+      - name: Add .nojekyll
+        run: touch build/web/.nojekyll
+
+      - name: Keep the built site as a downloadable artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: flubriry-web
+          path: build/web
+          retention-days: 14
+
+      - name: Publish the build/web folder to gh-pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build/web
+          publish_branch: gh-pages
+          force_orphan: true
+          enable_jekyll: false
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'

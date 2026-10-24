@@ -1,0 +1,44 @@
+name: CI
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.47.0'
+          channel: stable
+          cache: true
+
+      - name: Refuse committed generated registry
+        run: |
+          if git ls-files --error-unmatch lib/registry.g.dart >/dev/null 2>&1; then
+            echo "::error::lib/registry.g.dart is generated and must not be committed."
+            exit 1
+          fi
+
+      - name: Install packages
+        run: flutter pub get
+
+      - name: Generate the registry
+        run: dart run tool/generate_registry.dart
+
+      - name: Analyze
+        run: flutter analyze
+
+      - name: Test
+        run: flutter test
+
+      - name: Build web
+        run: flutter build web --release --base-href /${{ github.event.repository.name }}/
