@@ -11,6 +11,12 @@ void main() {
         hasLength(16),
       );
       expect(
+        ComponentCatalog.all.every(
+          (entry) => entry.meta.contributor.isNotEmpty,
+        ),
+        isTrue,
+      );
+      expect(
         ComponentCatalog.all.map((entry) => entry.meta.order).toList(),
         orderedEquals(
           [...ComponentCatalog.all.map((entry) => entry.meta.order)]..sort(),

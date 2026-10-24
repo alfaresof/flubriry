@@ -214,7 +214,7 @@ final ComponentMeta componentMeta = ComponentMeta(
     'زوايا',
   ],
   dependencies: const ['figma_squircle: ^0.6.3'],
-  origin: 'Qafelah',
+  contributor: 'alfaresof',
   preview: (context) => const _SquirclePreview(),
 );
 

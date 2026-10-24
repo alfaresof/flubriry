@@ -130,6 +130,7 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text('Copy code'), findsOneWidget);
+    expect(find.text('@alfaresof'), findsWidgets);
     expect(find.byType(SelectionArea), findsOneWidget);
     expect(
       find.ancestor(

@@ -147,6 +147,7 @@ final ComponentMeta componentMeta = ComponentMeta(
     'تحميل',
     'رفع',
   ],
+  contributor: 'alfaresof',
   preview: (context) => const _ProgressPreview(),
 );
 

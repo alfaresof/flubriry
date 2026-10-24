@@ -30,7 +30,7 @@ class _ComponentCardState extends State<ComponentCard> {
     final strings = context.strings;
     final language = context.language;
     final meta = widget.entry.meta;
-    final mat = categoryMat(context, meta.category);
+    final stage = stageColor(context);
 
     return MouseRegion(
       onEnter: (_) => setState(() => _hovered = true),
@@ -68,7 +68,7 @@ class _ComponentCardState extends State<ComponentCard> {
                     children: [
                       Positioned.fill(
                         child: PreviewStage(
-                          color: mat,
+                          color: stage,
                           borderRadius: BorderRadius.zero,
                           padding: const EdgeInsets.all(22),
                           child: meta.preview(context),

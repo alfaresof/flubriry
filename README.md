@@ -2,6 +2,8 @@
 
 **Stand out with components beyond the ordinary.**
 
+**Live catalogue:** https://alfaresof.github.io/flubriry/
+
 A Flutter component library in English and Arabic: sixteen live previews,
 copy-ready Dart, light and dark themes, and six accent palettes — starting with
 Flutter blue.
@@ -92,6 +94,8 @@ This is the complete contributor flow. No code generation is required from you.
        'What makes it worth borrowing.',
        'ما يجعله جديرًا بالاقتباس.',
      ),
+     contributor: 'your-github-handle',
+     // contributorAvatar: 'assets/images/contributors/you.jpg',
      preview: (context) => const _MyPreview(),
    );
    ```
@@ -144,29 +148,28 @@ of the catalogue.
 
 ## Components
 
-| # | Component | Arabic | Shelf | Origin |
+| # | Component | Arabic | Shelf | Contributed by |
 |---|---|---|---|---|
-| 01 | Squircle Button | زر سكويركل | Buttons | Qafelah |
-| 02 | Tandem Button | زر الانطلاق | Buttons | Qafelah |
-| 03 | Orbit Button | زر المدار | Buttons | Qafelah |
-| 04 | Field Note | حقل الملاحظة | Inputs | Qafelah |
-| 05 | Tally Stepper | عدّاد الكمية | Inputs | Qafelah |
-| 06 | Filter Pill | زر التصفية | Navigation | Qafelah |
-| 07 | Segment Switch | قائمة انتقال | Navigation | flubriry |
-| 08 | Point Badge | شارة النقاط | Display | Qafelah |
-| 09 | Title Stack | كتلة العنوان | Display | Qafelah |
-| 10 | Soft Toast | تنبيه ناعم | States | Qafelah |
-| 11 | Empty Nest | حالة فراغ | States | flubriry |
-| 12 | Progress Rail | حالة التقدم | States | flubriry |
-| 13 | Crew Row | صف الفريق | Display | Khaber |
-| 14 | Plan Pass | بطاقة الاشتراك | Display | Khaber |
-| 15 | Access Gate | بوابة العضوية | States | Khaber |
-| 16 | Date Strip | شريط التواريخ | Navigation | Khaber |
+| 01 | Squircle Button | زر سكويركل | Buttons | @alfaresof |
+| 02 | Tandem Button | زر الانطلاق | Buttons | @alfaresof |
+| 03 | Orbit Button | زر المدار | Buttons | @alfaresof |
+| 04 | Field Note | حقل الملاحظة | Inputs | @alfaresof |
+| 05 | Tally Stepper | عدّاد الكمية | Inputs | @alfaresof |
+| 06 | Filter Pill | زر التصفية | Navigation | @alfaresof |
+| 07 | Segment Switch | قائمة انتقال | Navigation | @alfaresof |
+| 08 | Point Badge | شارة النقاط | Display | @alfaresof |
+| 09 | Title Stack | كتلة العنوان | Display | @alfaresof |
+| 10 | Soft Toast | تنبيه ناعم | States | @alfaresof |
+| 11 | Empty Nest | حالة فراغ | States | @alfaresof |
+| 12 | Progress Rail | حالة التقدم | States | @alfaresof |
+| 13 | Crew Row | صف الفريق | Display | @alfaresof |
+| 14 | Plan Pass | بطاقة الاشتراك | Display | @alfaresof |
+| 15 | Access Gate | بوابة العضوية | States | @alfaresof |
+| 16 | Date Strip | شريط التواريخ | Navigation | @alfaresof |
 
-Nine are rebuilt from patterns in the
-[Qafelah app](https://github.com/ryadh-sa/qafelah_app), three were made for this
-shelf, and four are modeled on the team, subscription, access, and calendar
-assets in the Khaber project. All sixteen are theme-aware.
+Sixteen components, contributed by [@alfaresof](https://github.com/alfaresof).
+Each detail page credits the contributor with their avatar and a link to their
+GitHub profile. All sixteen are theme-aware.
 
 ## Architecture — MVC + Riverpod
 
@@ -215,6 +218,12 @@ to it. Drop a replacement in `assets/brand/` and update that constant.
 The contribution page also includes the creator portrait, links to
 [@alfaresof](https://github.com/alfaresof) on GitHub and X, and a direct
 **Repository** link.
+
+Every component shows a **Contributed by** badge on its detail page. The badge
+uses `contributor` (a GitHub handle) from its metadata. If `contributorAvatar`
+is set to a local asset or URL it uses that image; otherwise it falls back to
+the GitHub avatar (or a monogram). The badge opens the contributor's GitHub
+profile.
 
 ## The contribution page
 

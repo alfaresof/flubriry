@@ -3,6 +3,7 @@ import 'package:flubriry/views/shared/app_context.dart';
 import 'package:flubriry/services/open_link.dart';
 import 'package:flubriry/theme/app_spacing.dart';
 import 'package:flubriry/theme/app_typography.dart';
+import 'package:flubriry/views/shared/contributor_badge.dart';
 import 'package:flubriry/views/shared/copy_button.dart';
 import 'package:flubriry/views/shared/github_button.dart';
 import 'package:flubriry/models/component_catalog.dart';
@@ -237,17 +238,6 @@ class _DetailIntro extends StatelessWidget {
               AppType.label(context, strings.componentNumber(number)),
               style: AppType.meta(context, size: 10.5, color: palette.muted),
             ),
-            if (meta.origin != null) ...[
-              const _Dot(),
-              Text(
-                AppType.label(context, strings.originName(meta.origin)),
-                style: AppType.meta(
-                  context,
-                  size: 10.5,
-                  color: palette.accentStrong,
-                ),
-              ),
-            ],
           ],
         ),
         const SizedBox(height: 15),
@@ -379,7 +369,7 @@ class _PreviewPanel extends StatelessWidget {
               children: [
                 Positioned.fill(
                   child: PreviewStage(
-                    color: categoryMat(context, meta.category),
+                    color: stageColor(context),
                     borderRadius: BorderRadius.zero,
                     padding: EdgeInsets.all(narrow ? 24 : 36),
                     child: meta.preview(context),
@@ -528,7 +518,6 @@ class _Facts extends StatelessWidget {
     final palette = context.palette;
     final strings = context.strings;
     final meta = entry.meta;
-    final origin = strings.originName(meta.origin);
 
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 22),
@@ -548,7 +537,14 @@ class _Facts extends StatelessWidget {
                 ? strings.pureFlutter
                 : meta.dependencies.join(' · '),
           ),
-          _Fact(label: strings.originFactLabel, value: origin),
+          _Fact(
+            label: strings.contributedBy,
+            value: '',
+            child: ContributorBadge(
+              username: meta.contributor,
+              avatar: meta.contributorAvatar,
+            ),
+          ),
           _Fact(
             label: strings.fileLabel,
             value: entry.fileName,
@@ -562,11 +558,17 @@ class _Facts extends StatelessWidget {
 }
 
 class _Fact extends StatelessWidget {
-  const _Fact({required this.label, required this.value, this.onTap});
+  const _Fact({
+    required this.label,
+    required this.value,
+    this.onTap,
+    this.child,
+  });
 
   final String label;
   final String value;
   final VoidCallback? onTap;
+  final Widget? child;
 
   @override
   Widget build(BuildContext context) {
@@ -610,7 +612,9 @@ class _Fact extends StatelessWidget {
             style: AppType.meta(context, size: 9.5, color: palette.muted),
           ),
           const SizedBox(height: 7),
-          if (onTap == null)
+          if (child != null)
+            child!
+          else if (onTap == null)
             valueWidget
           else
             Semantics(

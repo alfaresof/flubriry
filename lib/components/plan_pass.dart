@@ -137,20 +137,18 @@ final ComponentMeta componentMeta = ComponentMeta(
   category: ComponentCategory.display,
   name: const LocalizedText('Plan Pass', 'بطاقة الاشتراك'),
   description: const LocalizedText(
-    'A compact membership pass: the plan, what it costs, and when it renews, with one quiet action. From Khaber subscriptions.',
-    'بطاقة عضوية صغيرة: الخطة وسعرها وموعد تجديدها، مع إجراء واحد هادئ. من اشتراكات خبر.',
+    'A compact membership pass: the plan, what it costs, and when it renews, with one quiet action.',
+    'بطاقة عضوية صغيرة: الخطة وسعرها وموعد تجديدها، مع إجراء واحد هادئ.',
   ),
   tags: const [
     'plan',
     'subscription',
     'membership',
     'crown',
-    'khaber',
     'اشتراك',
     'عضوية',
-    'خبر',
   ],
-  origin: 'Khaber',
+  contributor: 'alfaresof',
   preview: (context) => const _PlanPreview(),
 );
 

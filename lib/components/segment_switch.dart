@@ -166,8 +166,8 @@ final ComponentMeta componentMeta = ComponentMeta(
   category: ComponentCategory.navigation,
   name: const LocalizedText('Segment Switch', 'قائمة انتقال'),
   description: const LocalizedText(
-    'A small room with two doors. The amber thumb glides to the chosen side, and the direction reverses correctly in Arabic.',
-    'غرفة صغيرة ببابين. ينزلق المقبض الكهرماني إلى الجهة المختارة، وينعكس اتجاهه تلقائيًا في العربية.',
+    'A small room with two doors. The accent thumb glides to the chosen side, and the direction reverses correctly in Arabic.',
+    'غرفة صغيرة ببابين. ينزلق المقبض الملوّن إلى الجهة المختارة، وينعكس اتجاهه تلقائيًا في العربية.',
   ),
   tags: const [
     'segmented',
@@ -179,6 +179,7 @@ final ComponentMeta componentMeta = ComponentMeta(
     'أقسام',
     'تنقل',
   ],
+  contributor: 'alfaresof',
   preview: (context) => const _SegmentPreview(),
 );
 

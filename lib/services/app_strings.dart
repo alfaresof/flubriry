@@ -100,16 +100,7 @@ class AppStrings {
   String get linkError =>
       pick('Could not open that link.', 'تعذّر فتح الرابط.');
   String get openComponent => pick('Open component', 'افتح المكون');
-  String originName(String? origin) {
-    return switch (origin) {
-      'Qafelah' => pick('From Qafelah', 'من قافلة'),
-      'Khaber' => pick('From Khaber', 'من خبر'),
-      null => 'flubriry',
-      _ => origin,
-    };
-  }
-
-  String get originFactLabel => pick('Origin', 'الأصل');
+  String get contributedBy => pick('Contributed by', 'مساهمة من');
   String get fileLabel => pick('File', 'الملف');
   String get noComponentsTitle => pick('The shelf is empty.', 'الرف فارغ.');
   String get noComponentsBody => pick(
@@ -252,7 +243,7 @@ class AppStrings {
   String get demoHeart => pick('Save', 'حفظ');
   String get demoShare => pick('Share', 'مشاركة');
 
-  // ── Khaber demo copy ────────────────────────────────────────────────────
+  // ── Team & subscription demo copy ───────────────────────────────────────
   String get demoCrewName => pick('Noura Al-Harbi', 'نورة الحربي');
   String get demoCrewRole => pick('Editor', 'محررة');
   String get demoCrewActive => pick('Active now', 'نشطة الآن');
@@ -261,10 +252,8 @@ class AppStrings {
   String get demoPlanRenewal => pick('Renews 12 Nov', 'تتجدد 12 نوفمبر');
   String get demoManage => pick('Manage', 'إدارة');
   String get demoAccessTitle => pick('Members only', 'للأعضاء فقط');
-  String get demoAccessBody => pick(
-    'This briefing is for Khaber subscribers.',
-    'هذا الموجز لمشتركي خبر.',
-  );
+  String get demoAccessBody =>
+      pick('This briefing is for subscribers.', 'هذا الموجز للمشتركين.');
   String get demoUnlock => pick('Unlock', 'افتح');
   String get demoDateMonday => pick('Mon', 'الاثنين');
   String get demoDateTuesday => pick('Tue', 'الثلاثاء');

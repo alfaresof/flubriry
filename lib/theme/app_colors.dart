@@ -16,6 +16,7 @@ class FlubPalette extends ThemeExtension<FlubPalette> {
     required this.faint,
     required this.line,
     required this.lineStrong,
+    required this.stage,
     required this.accent,
     required this.accentStrong,
     required this.accentInk,
@@ -42,6 +43,7 @@ class FlubPalette extends ThemeExtension<FlubPalette> {
   final Color faint;
   final Color line;
   final Color lineStrong;
+  final Color stage;
   final Color accent;
   final Color accentStrong;
   final Color accentInk;
@@ -68,6 +70,7 @@ class FlubPalette extends ThemeExtension<FlubPalette> {
     faint: Color(0xFF8A9AAA),
     line: Color(0xFFDDE8F2),
     lineStrong: Color(0xFFBCCDDB),
+    stage: Color(0xFFEDF4FA),
     accent: Color(0xFF027DFD),
     accentStrong: Color(0xFF02569B),
     accentInk: Color(0xFF041A2B),
@@ -95,6 +98,7 @@ class FlubPalette extends ThemeExtension<FlubPalette> {
     faint: Color(0xFF6C8190),
     line: Color(0xFF1C3040),
     lineStrong: Color(0xFF2F4B60),
+    stage: Color(0xFF0E1C29),
     accent: Color(0xFF54C5F8),
     accentStrong: Color(0xFF8ED8FF),
     accentInk: Color(0xFF041A2B),
@@ -137,6 +141,7 @@ class FlubPalette extends ThemeExtension<FlubPalette> {
     Color? faint,
     Color? line,
     Color? lineStrong,
+    Color? stage,
     Color? accent,
     Color? accentStrong,
     Color? accentInk,
@@ -163,6 +168,7 @@ class FlubPalette extends ThemeExtension<FlubPalette> {
       faint: faint ?? this.faint,
       line: line ?? this.line,
       lineStrong: lineStrong ?? this.lineStrong,
+      stage: stage ?? this.stage,
       accent: accent ?? this.accent,
       accentStrong: accentStrong ?? this.accentStrong,
       accentInk: accentInk ?? this.accentInk,
@@ -194,6 +200,7 @@ class FlubPalette extends ThemeExtension<FlubPalette> {
       faint: Color.lerp(faint, other.faint, t)!,
       line: Color.lerp(line, other.line, t)!,
       lineStrong: Color.lerp(lineStrong, other.lineStrong, t)!,
+      stage: Color.lerp(stage, other.stage, t)!,
       accent: Color.lerp(accent, other.accent, t)!,
       accentStrong: Color.lerp(accentStrong, other.accentStrong, t)!,
       accentInk: Color.lerp(accentInk, other.accentInk, t)!,

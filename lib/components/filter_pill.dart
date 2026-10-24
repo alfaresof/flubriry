@@ -125,7 +125,7 @@ final ComponentMeta componentMeta = ComponentMeta(
     'اختيار',
     'تنقل',
   ],
-  origin: 'Qafelah',
+  contributor: 'alfaresof',
   preview: (context) => const _FilterPreview(),
 );
 

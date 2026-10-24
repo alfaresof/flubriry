@@ -1,23 +1,7 @@
 import 'package:flubriry/views/shared/app_context.dart';
-import 'package:flubriry/models/component_category.dart';
 import 'package:flutter/material.dart';
 
-Color categoryMat(BuildContext context, ComponentCategory category) {
-  final palette = context.palette;
-  final base = switch (category) {
-    ComponentCategory.buttons => palette.matButtons,
-    ComponentCategory.inputs => palette.matInputs,
-    ComponentCategory.navigation => palette.matNavigation,
-    ComponentCategory.display => palette.matDisplay,
-    ComponentCategory.states => palette.matStates,
-  };
-  // A barely-there wash of the selected accent keeps the whole grid in tune
-  // without sacrificing the category tints.
-  final strength = Theme.of(context).brightness == Brightness.dark
-      ? 0.06
-      : 0.05;
-  return Color.alphaBlend(palette.accent.withValues(alpha: strength), base);
-}
+Color stageColor(BuildContext context) => context.palette.stage;
 
 /// The tinted specimen mat used on cards, the featured entry, and detail.
 class PreviewStage extends StatelessWidget {
@@ -49,8 +33,12 @@ class PreviewStage extends StatelessWidget {
             if (dots)
               CustomPaint(
                 painter: DotGridPainter(
-                  color: ink.withValues(alpha: 0.075),
-                  spacing: 18,
+                  color: ink.withValues(
+                    alpha: Theme.of(context).brightness == Brightness.dark
+                        ? 0.055
+                        : 0.04,
+                  ),
+                  spacing: 20,
                 ),
               ),
             Padding(

@@ -57,6 +57,7 @@ final ComponentMeta componentMeta = ComponentMeta(
     'جملة واحدة عمّا يجعل هذا المكون جديرًا بالاقتباس.',
   ),
   tags: const ['your', 'tags', 'وسوم'],
+  contributor: 'your-github-handle',
   preview: (context) => _YourPreview(),
 );
 

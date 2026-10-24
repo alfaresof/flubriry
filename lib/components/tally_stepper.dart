@@ -164,7 +164,7 @@ final ComponentMeta componentMeta = ComponentMeta(
     'كمية',
     'رقم',
   ],
-  origin: 'Qafelah',
+  contributor: 'alfaresof',
   preview: (context) => const _TallyPreview(),
 );
 

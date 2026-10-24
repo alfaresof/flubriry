@@ -4,6 +4,7 @@ abstract final class Site {
   static const repoUrl = 'https://github.com/$owner/$repo';
   static const githubProfileUrl = 'https://github.com/$owner';
   static const xUrl = 'https://x.com/$owner';
+  static const ownerAvatar = 'assets/images/creator.jpg';
   static const newComponentUrl = '$repoUrl/new/main/lib/components';
   static const templateUrl = '$repoUrl/blob/main/lib/components/_template.dart';
   static const pullsUrl = '$repoUrl/pulls';

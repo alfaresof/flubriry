@@ -151,7 +151,7 @@ final ComponentMeta componentMeta = ComponentMeta(
     'زر ممتلئ بقرص ملوّن يرافقه. يتقدّم القرص قليلًا عند المرور، فيتحرّك النص والأيقونة كوحدة واحدة.',
   ),
   tags: const ['button', 'hover', 'pill', 'icon', 'زر', 'مرور', 'أيقونة'],
-  origin: 'Qafelah',
+  contributor: 'alfaresof',
   preview: (context) => const _TandemPreview(),
 );
 

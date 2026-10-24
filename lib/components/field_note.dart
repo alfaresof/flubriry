@@ -5,7 +5,7 @@ import 'package:flubriry/models/component_meta.dart';
 import 'package:flubriry/models/localized_text.dart';
 
 // <flubriry:code>
-/// A quiet labelled field: label above, helper below, and a solid amber
+/// A quiet labelled field: label above, helper below, and a solid accent
 /// focus ring that wraps the whole note.
 class FieldNote extends StatefulWidget {
   const FieldNote({
@@ -187,8 +187,8 @@ final ComponentMeta componentMeta = ComponentMeta(
   category: ComponentCategory.inputs,
   name: const LocalizedText('Field Note', 'حقل الملاحظة'),
   description: const LocalizedText(
-    'A labelled field with its helper kept close. Focus wraps the whole note in a solid amber ring instead of a glow.',
-    'حقل بعنوان وملاحظة قريبة منه. يحيط التركيز بالحقل بحلقة كهرمانية واضحة بدلًا من توهّج.',
+    'A labelled field with its helper kept close. Focus wraps the whole note in a solid accent ring instead of a glow.',
+    'حقل بعنوان وملاحظة قريبة منه. يحيط التركيز بالحقل بحلقة واضحة بلون التمييز بدلًا من توهّج.',
   ),
   tags: const [
     'input',
@@ -200,7 +200,7 @@ final ComponentMeta componentMeta = ComponentMeta(
     'نموذج',
     'تركيز',
   ],
-  origin: 'Qafelah',
+  contributor: 'alfaresof',
   preview: (context) => const _FieldPreview(),
 );
 

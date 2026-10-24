@@ -126,13 +126,11 @@ final ComponentMeta componentMeta = ComponentMeta(
     'calendar',
     'selector',
     'days',
-    'khaber',
     'تاريخ',
     'تقويم',
     'اختيار',
-    'خبر',
   ],
-  origin: 'Khaber',
+  contributor: 'alfaresof',
   preview: (context) => const _DatePreview(),
 );
 

@@ -101,8 +101,8 @@ final ComponentMeta componentMeta = ComponentMeta(
   category: ComponentCategory.display,
   name: const LocalizedText('Point Badge', 'شارة النقاط'),
   description: const LocalizedText(
-    'A compact balance for points, credits, or counts. The amber emblem gives the number a warm place to land.',
-    'شارة صغيرة للنقاط أو الأرصدة أو الأعداد. يمنح الشعار الكهرماني الرقم مكانًا دافئًا يستقر فيه.',
+    'A compact balance for points, credits, or counts. The accent emblem gives the number a warm place to land.',
+    'شارة صغيرة للنقاط أو الأرصدة أو الأعداد. يمنح الشعار الملوّن الرقم مكانًا دافئًا يستقر فيه.',
   ),
   tags: const [
     'badge',
@@ -114,7 +114,7 @@ final ComponentMeta componentMeta = ComponentMeta(
     'نقاط',
     'عرض',
   ],
-  origin: 'Qafelah',
+  contributor: 'alfaresof',
   preview: (context) => const _PointPreview(),
 );
 

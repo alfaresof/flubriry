@@ -24,7 +24,7 @@ class CopyButton extends StatefulWidget {
   final bool large;
   final CopyButtonTone tone;
 
-  /// A filled amber action, for the one copy control that should lead.
+  /// A filled accent action, for the one copy control that should lead.
   final bool emphasis;
 
   @override

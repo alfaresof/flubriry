@@ -18,7 +18,8 @@ class ComponentMeta {
     required this.preview,
     this.tags = const [],
     this.dependencies = const [],
-    this.origin,
+    required this.contributor,
+    this.contributorAvatar,
   });
 
   final String id;
@@ -30,8 +31,12 @@ class ComponentMeta {
   final List<String> tags;
   final List<String> dependencies;
 
-  /// Where the component was first made, e.g. "Qafelah".
-  final String? origin;
+  /// GitHub handle of the person who contributed this component.
+  final String contributor;
+
+  /// Optional local asset or https URL for the contributor avatar. When null,
+  /// the owner portrait or the GitHub avatar is used.
+  final String? contributorAvatar;
 }
 
 /// A [ComponentMeta] paired with its copy-ready Dart source.

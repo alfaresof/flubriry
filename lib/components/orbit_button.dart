@@ -180,7 +180,7 @@ final ComponentMeta componentMeta = ComponentMeta(
     'أيقونة',
     'دائري',
   ],
-  origin: 'Qafelah',
+  contributor: 'alfaresof',
   preview: (context) => const _OrbitPreview(),
 );
 

@@ -120,21 +120,19 @@ final ComponentMeta componentMeta = ComponentMeta(
   category: ComponentCategory.states,
   name: const LocalizedText('Access Gate', 'بوابة العضوية'),
   description: const LocalizedText(
-    'A friendly lock for subscriber-only content, with one clear way in. The kind of gate Khaber puts around a members-only briefing.',
-    'قفل ودود للمحتوى المخصص للأعضاء، مع طريق واحد واضح للدخول. البوابة التي تضعها خبر حول موجز خاص بالمشتركين.',
+    'A friendly lock for subscriber-only content, with one clear way in.',
+    'قفل ودود للمحتوى المخصص للأعضاء، مع طريق واحد واضح للدخول.',
   ),
   tags: const [
     'lock',
     'paywall',
     'membership',
     'access',
-    'khaber',
     'قفل',
     'عضوية',
     'وصول',
-    'خبر',
   ],
-  origin: 'Khaber',
+  contributor: 'alfaresof',
   preview: (context) => const _AccessPreview(),
 );
 

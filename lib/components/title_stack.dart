@@ -88,7 +88,7 @@ final ComponentMeta componentMeta = ComponentMeta(
     'نص',
     'تنسيق',
   ],
-  origin: 'Qafelah',
+  contributor: 'alfaresof',
   preview: (context) => const _TitlePreview(),
 );
 

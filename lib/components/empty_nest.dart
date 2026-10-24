@@ -216,6 +216,7 @@ final ComponentMeta componentMeta = ComponentMeta(
     'لا بيانات',
     'بداية',
   ],
+  contributor: 'alfaresof',
   preview: (context) => const _EmptyPreview(),
 );
 

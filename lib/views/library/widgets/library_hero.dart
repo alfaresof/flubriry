@@ -299,7 +299,7 @@ class _FeaturedSpecimenState extends State<_FeaturedSpecimen> {
                       children: [
                         Positioned.fill(
                           child: PreviewStage(
-                            color: categoryMat(context, meta.category),
+                            color: stageColor(context),
                             padding: const EdgeInsets.all(22),
                             borderRadius: BorderRadius.zero,
                             child: meta.preview(context),

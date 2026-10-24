@@ -171,20 +171,11 @@ final ComponentMeta componentMeta = ComponentMeta(
   category: ComponentCategory.display,
   name: const LocalizedText('Crew Row', 'صف الفريق'),
   description: const LocalizedText(
-    'A team member at a glance: a soft avatar, a role, and one verified mark. Borrowed from the Khaber team list.',
-    'عضو الفريق في لمحة: صورة ناعمة، ودور، وعلامة توثيق واحدة. مقتبس من قائمة فريق خبر.',
+    'A team member at a glance: a soft avatar, a role, and one verified mark.',
+    'عضو الفريق في لمحة: صورة ناعمة، ودور، وعلامة توثيق واحدة.',
   ),
-  tags: const [
-    'team',
-    'member',
-    'avatar',
-    'verified',
-    'khaber',
-    'فريق',
-    'عضو',
-    'خبر',
-  ],
-  origin: 'Khaber',
+  tags: const ['team', 'member', 'avatar', 'verified', 'فريق', 'عضو'],
+  contributor: 'alfaresof',
   preview: (context) => const _CrewPreview(),
 );
 
