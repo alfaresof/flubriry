@@ -24,6 +24,10 @@ Flutter blue.
 - **Light and dark** modes.
 - **Live previews**, a clear **Copy** button, and a full page for every component
   with syntax-highlighted source.
+- **Direct component links** powered by `go_router`. Each detail page has a
+  **Copy link** action that copies its own URL (for example
+  `https://alfaresof.github.io/flubriry/#/component/squircle-button`), and opening
+  that link lands on the same component.
 - **Pagination** of six components per page, plus previous/next navigation on
   component pages.
 - **A full contribution page** linked from the navbar.

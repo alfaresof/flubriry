@@ -3,6 +3,7 @@ abstract final class Site {
   static const repo = 'flubriry';
   static const repoUrl = 'https://github.com/$owner/$repo';
   static const githubProfileUrl = 'https://github.com/$owner';
+  static const liveUrl = 'https://$owner.github.io/$repo/';
   static const xUrl = 'https://x.com/$owner';
   static const ownerAvatar = 'assets/images/creator.jpg';
   static const newComponentUrl = '$repoUrl/new/main/lib/components';

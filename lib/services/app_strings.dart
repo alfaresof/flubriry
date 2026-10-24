@@ -93,6 +93,8 @@ class AppStrings {
   String get copy => pick('Copy', 'نسخ');
   String get copied => pick('Copied', 'تم النسخ');
   String get copyCode => pick('Copy code', 'انسخ الكود');
+  String get copyLink => pick('Copy link', 'انسخ الرابط');
+  String get linkCopied => pick('Link copied', 'تم نسخ الرابط');
   String get copyFailed => pick(
     'Could not copy. Try selecting the code.',
     'تعذّر النسخ. جرّب تحديد الكود.',

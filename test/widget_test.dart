@@ -130,6 +130,7 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text('Copy code'), findsOneWidget);
+    expect(find.text('Copy link'), findsOneWidget);
     expect(find.text('@alfaresof'), findsWidgets);
     expect(find.byType(SelectionArea), findsOneWidget);
     expect(
@@ -163,6 +164,45 @@ void main() {
 
     expect(find.text('Copy code'), findsNothing);
     expect(tester.takeException(), isNull);
+  });
+
+  testWidgets('copies the direct go_router link for a component', (
+    tester,
+  ) async {
+    String? clipboard;
+    final messenger =
+        TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger;
+    messenger.setMockMethodCallHandler(SystemChannels.platform, (call) async {
+      if (call.method == 'Clipboard.setData') {
+        clipboard =
+            (call.arguments as Map<Object?, Object?>)['text'] as String?;
+        return null;
+      }
+      if (call.method == 'Clipboard.getData') {
+        return <String, Object?>{'text': clipboard};
+      }
+      return null;
+    });
+    addTearDown(
+      () => messenger.setMockMethodCallHandler(SystemChannels.platform, null),
+    );
+
+    await pumpCatalogue(tester);
+    final open = find.byKey(const ValueKey('open-squircle-button'));
+    await tester.ensureVisible(open);
+    await tester.pumpAndSettle();
+    await tester.tap(open);
+    await tester.pumpAndSettle();
+
+    final copyLink = find.text('Copy link');
+    await tester.ensureVisible(copyLink);
+    await tester.pumpAndSettle();
+    await tester.tap(copyLink);
+    await tester.pump();
+
+    expect(clipboard, contains('#/component/squircle-button'));
+    expect(find.text('Link copied'), findsOneWidget);
+    await tester.pump(const Duration(seconds: 2));
   });
 
   testWidgets('appearance dialog changes theme and accent for the app', (

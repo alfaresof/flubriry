@@ -1,6 +1,7 @@
 import 'package:flubriry/config/site.dart';
 import 'package:flubriry/views/shared/app_context.dart';
 import 'package:flubriry/services/open_link.dart';
+import 'package:flubriry/services/page_url.dart';
 import 'package:flubriry/theme/app_spacing.dart';
 import 'package:flubriry/theme/app_typography.dart';
 import 'package:flubriry/views/shared/contributor_badge.dart';
@@ -66,6 +67,11 @@ class _ComponentDetailPageState extends State<ComponentDetailPage> {
     final number = ComponentCatalog.all.indexOf(entry) + 1;
     final previous = _previous();
     final next = _next();
+    final browserUrl = currentPageUrl();
+    final route = GoRouterState.of(context).uri.toString();
+    final shareUrl = browserUrl.isNotEmpty
+        ? browserUrl
+        : '${Site.liveUrl}#$route';
 
     return Title(
       title: context.strings.componentPageTitle(
@@ -95,7 +101,12 @@ class _ComponentDetailPageState extends State<ComponentDetailPage> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
-                        _DetailIntro(entry: entry, number: number, wide: wide),
+                        _DetailIntro(
+                          entry: entry,
+                          number: number,
+                          wide: wide,
+                          shareUrl: shareUrl,
+                        ),
                         const SizedBox(height: 30),
                         if (wide)
                           Row(
@@ -205,11 +216,13 @@ class _DetailIntro extends StatelessWidget {
     required this.entry,
     required this.number,
     required this.wide,
+    required this.shareUrl,
   });
 
   final ComponentEntry entry;
   final int number;
   final bool wide;
+  final String shareUrl;
 
   @override
   Widget build(BuildContext context) {
@@ -266,13 +279,13 @@ class _DetailIntro extends StatelessWidget {
             children: [
               Expanded(child: titleBlock),
               const SizedBox(width: 24),
-              _DetailActions(entry: entry),
+              _DetailActions(entry: entry, shareUrl: shareUrl),
             ],
           )
         else ...[
           titleBlock,
           const SizedBox(height: 20),
-          _DetailActions(entry: entry),
+          _DetailActions(entry: entry, shareUrl: shareUrl),
         ],
         const SizedBox(height: 20),
         ConstrainedBox(
@@ -293,9 +306,10 @@ class _DetailIntro extends StatelessWidget {
 }
 
 class _DetailActions extends StatelessWidget {
-  const _DetailActions({required this.entry});
+  const _DetailActions({required this.entry, required this.shareUrl});
 
   final ComponentEntry entry;
+  final String shareUrl;
 
   @override
   Widget build(BuildContext context) {
@@ -309,6 +323,12 @@ class _DetailActions extends StatelessWidget {
           large: true,
           emphasis: true,
           label: strings.copyCode,
+        ),
+        CopyButton(
+          text: shareUrl,
+          large: true,
+          label: strings.copyLink,
+          copiedLabel: strings.linkCopied,
         ),
         GithubButton(
           variant: GithubButtonVariant.quiet,
