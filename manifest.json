@@ -1,0 +1,35 @@
+{
+  "name": "flubriry — a Flutter component library",
+  "short_name": "flubriry",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#F4F8FC",
+  "theme_color": "#F4F8FC",
+  "description": "Stand out with components beyond the ordinary. A bilingual Flutter component library with live previews and copy-ready source.",
+  "orientation": "any",
+  "prefer_related_applications": false,
+  "icons": [
+    {
+      "src": "icons/Icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/Icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/Icon-maskable-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "icons/Icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

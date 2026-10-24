@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <base href="/flubriry/">
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="Stand out with components beyond the ordinary. flubriry is a bilingual Flutter component library with live previews, copy-ready source, and a Flutter-blue palette.">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#F4F8FC" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#07121C" media="(prefers-color-scheme: dark)">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="flubriry — a Flutter component library">
+  <meta property="og:description" content="Stand out with components beyond the ordinary. Sixteen bilingual Flutter components, previewed and copy-ready.">
+  <meta property="og:image" content="social-card.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="flubriry — a Flutter component library">
+  <meta name="twitter:description" content="Stand out with components beyond the ordinary. Sixteen bilingual Flutter components, previewed and copy-ready.">
+  <meta name="twitter:image" content="social-card.png">
+
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="flubriry">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <title>flubriry — a Flutter component library</title>
+  <link rel="manifest" href="manifest.json">
+
+  <style>
+    :root {
+      color-scheme: light dark;
+      --paper: #F4F8FC;
+      --ink: #071A2B;
+      --accent: #027DFD;
+      --accent-ink: #041A2B;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --paper: #07121C;
+        --ink: #EAF3FB;
+        --accent: #54C5F8;
+      }
+    }
+
+    html, body {
+      margin: 0;
+      min-height: 100%;
+      background: var(--paper);
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    ::selection {
+      background: var(--accent);
+      color: var(--accent-ink);
+    }
+
+    #boot {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 13px;
+      background: var(--paper);
+      transition: opacity 320ms ease;
+    }
+
+    #boot.hide {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    #boot .mark {
+      width: 38px;
+      height: 38px;
+      display: block;
+      border-radius: 11px;
+    }
+
+    #boot .word {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 30px;
+      letter-spacing: -0.7px;
+      color: var(--ink);
+    }
+
+    noscript p {
+      max-width: 34rem;
+      margin: 20vh auto;
+      padding: 24px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 22px;
+      line-height: 1.5;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div id="boot" role="status" aria-label="Loading flubriry">
+    <img class="mark" src="icons/Icon-192.png" alt="" aria-hidden="true">
+    <span class="word">flubriry</span>
+  </div>
+
+  <noscript>
+    <p>flubriry needs JavaScript to draw its previews. The component source is
+      always available on GitHub.</p>
+  </noscript>
+
+  <script>
+    window.addEventListener('flutter-first-frame', function () {
+      var boot = document.getElementById('boot');
+      if (!boot) return;
+      boot.classList.add('hide');
+      setTimeout(function () { boot.remove(); }, 360);
+    });
+
+    // A safety net for a failed or very slow boot: never trap the user
+    // behind the loading wordmark.
+    setTimeout(function () {
+      var boot = document.getElementById('boot');
+      if (boot) boot.remove();
+    }, 8000);
+  </script>
+  <script src="flutter_bootstrap.js" async></script>
+</body>
+</html>
